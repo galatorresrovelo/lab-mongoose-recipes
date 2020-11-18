@@ -21,6 +21,25 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
+    //Rutas (funciones)
+    const information ={
+    title:'Chiles en Nogada',
+    level:'Amateur Chef',
+    ingredients: ['Chiles Poblanos', 'Queso Cotija', 'Carne molida de Cerdo', 'Piñones','Duraznos','Peras', 'Huevos','Manzanas','Plátanos','Aceitunas', 'Pasa Amarillas','Acitrón','Jitomates', 'Cebollas', 'Ajos','Pimienta','Canela','Vinagre','Perejil','Aceita','Sal','Clavos','Vinagre','Nuez','Almendra','Granadas','Azúcar','Aceite'],
+    cuisine: 'Mexican',
+    dishType: 'Main Course',
+    image:'',
+    duration: '48',
+    creator:'María de la Concepción Traslosheros',
+   }
+  //Create recipes
+  Recipe.create(information,(error,{recipe})=>{
+   if(error){
+      console.log("Algo no paso",error);
+      return
+    }
+    console.log('La receta fue creada éxitosamente',recipe.title)
+   })
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
